@@ -1,4 +1,4 @@
-class Cipher {
+export class Cipher {
     constructor(private alphabet: string[], private key: string) {}
 
     encrypt(originalText: string): string {
