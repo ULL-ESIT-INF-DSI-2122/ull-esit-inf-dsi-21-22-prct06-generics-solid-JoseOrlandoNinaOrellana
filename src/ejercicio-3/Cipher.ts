@@ -1,22 +1,53 @@
+/**
+ * Clase Cipher
+ * Esta clase represetna el Cifrado César
+ */
 export class Cipher {
+
+    /**
+     * Constructor
+     * @param alphabet Alfabeto del cifrado
+     * @param key Clave del cifrado
+     */
     constructor(private alphabet: string[], private key: string) {}
 
+    /**
+     * Getter getAlphabet
+     * @returns Alfabeto del cifrado
+     */
     getAlphabet(): string[] {
         return this.alphabet;
     }
 
+    /**
+     * Getter getKey
+     * @returns Key del cifrado
+     */
     getKey(): string {
         return this.key;
     }
 
+    /**
+     * Setter setAlphabet
+     * @param alphabet Nuevo alfabeto del cifrado
+     */
     setAlphabet(alphabet: string[]) {
         this.alphabet = alphabet; 
     }
 
+    /**
+     * Setter setKey
+     * @param key Nuevo key del cifrado
+     */
     setKey(key: string) {
         this.key = key;
     }
 
+    /**
+     * Método encrypt
+     * @param originalText Texto a codificar 
+     * @returns Texto codificado
+     */
     encrypt(originalText: string): string {
         let cipherText: string = "";
         let displacement: number;
@@ -34,6 +65,11 @@ export class Cipher {
         return cipherText;
     }
 
+    /**
+     * Método decrypt
+     * @param cipherText Texto a decodificar
+     * @returns Texto decodificado
+     */
     decrypt(cipherText: string) {
         let originalText: string = "";
         let displacement: number;
@@ -54,8 +90,3 @@ export class Cipher {
         return originalText;
     }
 }
-
-let c: Cipher = new Cipher(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], "CLAVE");
-
-console.log(c.encrypt("HOLAESTOESUNAPRUEBA,"));
-console.log(c.decrypt("KAMWJVFPAXXYBMWXPCW,"));
