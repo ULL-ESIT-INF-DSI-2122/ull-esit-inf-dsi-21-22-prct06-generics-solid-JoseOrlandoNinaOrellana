@@ -1,6 +1,22 @@
 export class Cipher {
     constructor(private alphabet: string[], private key: string) {}
 
+    getAlphabet(): string[] {
+        return this.alphabet;
+    }
+
+    getKey(): string {
+        return this.key;
+    }
+
+    setAlphabet(alphabet: string[]) {
+        this.alphabet = alphabet; 
+    }
+
+    setKey(key: string) {
+        this.key = key;
+    }
+
     encrypt(originalText: string): string {
         let cipherText: string = "";
         let displacement: number;
