@@ -2,6 +2,93 @@
 
 ## Ejercicio 1 - El combate definitivo
 
+### Clase Fighter
+
+La clase abstracta `Fighter` representa a un luchador que tiene como atributos: nombre, altura, peso, HP, ataque, defensa y catchingPhrases. La clase tiene getters y setters para editar los atributos.
+
+### Clase DragonBallFighter
+
+La clase `DragonBallFighter` es una clase hija de la clase `Fighter`. Además contiene otro atributo `skill` que representa la habilidad especial del personaje del universo de Dragon Ball. 
+
+Hay un getter, `getSkill`, que devuelve la cadena de texto indicando la skill.
+
+```typescript
+getSkill(): string {
+    return this.skill;
+}
+```
+
+### Clase InazumaElevenFighter
+
+La clase `InazumaElevenFighter` es una clase hija de la clase `Fighter`. Además tiene el atributo `SuperSkill` que representa la supertecnica que poseen los jugadores de futbol del universo de Inazuma Eleven. También hay un getter que devulve dicho atributo.
+
+```typescript
+getSuperSkill(): string {
+    return this.superSkill;
+}
+```
+
+### Clase PokemonFighter
+
+La clase `PokemonFighter` es una clase hija de la clase `Fighter`. Además contiene un atributo que indica el tipo de pokemon, este tipo viene definido por un enumerado:
+
+```typescript
+enum PokemonType {fire, water, electric, grass};
+```
+
+Tiene un getter par acceder al tipo:
+
+```typescript
+getType(): PokemonType {
+    return this.type;
+}
+```
+
+### Clase Combat
+
+La clase `Combat` representa la lucha entre dos objetos de tipo `Fighter`. Esta clase tiene dos métodos.
+
+El método `move` realiza el ataque de un luchador a otro quitando puntos de HP. Se comprueba a quien le toca atacar con la variable `currentPlayer`. El daño se calcula con la siguiente formula:
+
+daño = (peso_1 / altura_1) * ataque_1 / (peso_2 / altura_2) * defensa_2
+
+Donde el 1 es el luchador que ataca y el 2 el luchador que se defiende.
+
+```typescript
+move() {
+    let damage: number = 0;
+
+    if(this.currentFighter === 1)
+    {
+        damage = ((this.fighter1.getWeight() / this.fighter1.getHeight()) * this.fighter1.getAttack()) / ((this.fighter2.getWeight() / this.fighter2.getHeight() * this.fighter2.getDefense()));
+        this.fighter1.setHP(this.fighter1.getHP() - damage);
+        console.log(this.fighter2.getRandomPhrase());
+        this.currentFighter = 2;
+    }
+    else
+    {
+        damage = ((this.fighter2.getWeight() / this.fighter2.getHeight()) * this.fighter2.getAttack()) / ((this.fighter1.getWeight() / this.fighter1.getHeight() * this.fighter1.getDefense()));            
+        this.fighter2.setHP(this.fighter2.getHP() - damage);
+        console.log(this.fighter1.getRandomPhrase());
+        this.currentFighter = 1;
+    }
+}
+```
+
+El método `start` representa todo el combate. Mientras los dos tengan HP significa que no hay ningún ganador. Cuando alguno de los dos tenga el HP debajo de 0 sale del bucle `while`. Y con la sentencia condicional se comprueba quien ha gando y se devulve una cadena de texto indicando quien ha ganado.
+
+```typescript
+start(): string {
+    while(this.fighter1.getHP() > 0 && this.fighter2.getHP() > 0)
+        this.move();
+        
+    if(this.fighter1.getHP() > 0)
+        return "¡El ganador es " + this.fighter1.getName() + "!";
+    else
+        return "¡El ganador es " + this.fighter2.getName() + "!";
+}
+```
+
 ## Ejercicio 2 - DSIflix
 
 ### Interfaces
