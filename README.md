@@ -1,5 +1,9 @@
 # Informe Práctica 6
- 
+
+## Coveralls
+
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-JoseOrlandoNinaOrellana/badge.svg?branch=master)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-JoseOrlandoNinaOrellana?branch=master)
+
 ## Ejercicio 1 - El combate definitivo
  
 ### Clase Fighter
