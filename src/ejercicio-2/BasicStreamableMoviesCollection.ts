@@ -2,10 +2,12 @@ import {BasicStreamableCollection} from "./BasicStreamableCollection"
 
 export type Movie = {
     name: string,
-    year: Date,
+    year: number,
     director: string,
-    ageRestricted: number,
-    actors: string[]
+    genre: string,
+    rating: number,
+    actors: string[],
+    duration: number,
 };
 
 export class BasicStreamableMoviesCollection extends BasicStreamableCollection<Movie> {
@@ -13,15 +15,21 @@ export class BasicStreamableMoviesCollection extends BasicStreamableCollection<M
         super(collection);
     }
 
-    filterByAge(year: Date): Movie[] {
+    filterByActor(actor: string): Movie[] {
         return this.collection.filter(function (element: Movie) {
-             return element.year === year;
+            return element.actors.indexOf(actor) > -1;
         });
     }
 
-    filterByName(name: string): Movie[] {
-        return this.collection.filter(function (element: Movie) {
-             return element.name === name;
-        });
+    generalInfo(name: string): string {
+        let info: string = "";
+        let serie: Movie = this.filterByName(name);
+
+        info += "Name: " + serie.name + "\n";
+        info += "Genre: " + serie.genre + "\n";
+        info += "Rating: " + serie.rating + "\n";
+        info += "Duration: " + serie.duration + "\n";
+
+        return info;
     }
 }
