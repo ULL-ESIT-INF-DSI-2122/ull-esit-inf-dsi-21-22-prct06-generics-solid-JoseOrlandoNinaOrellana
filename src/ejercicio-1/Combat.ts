@@ -1,8 +1,23 @@
 import { Fighter } from "./Fighter"
 
+/**
+ * Clase Combat
+ * Representa la pelea entre dos objetos de clase fighter
+ */
 export class Combat {
+
+    /**
+     * Constructor
+     * @param fighter1 Luchador 1
+     * @param fighter2 Luchador 2
+     * @param currentFighter Luchador actual
+     */
     constructor(private fighter1: Fighter, private fighter2: Fighter, private currentFighter: number = 1) {}
 
+    /**
+     * Método move
+     * Reliza un ataque quitando HP y imprimiendo por pantalla un catchingphrase
+     */
     move() {
         let damage: number = 0;
 
@@ -22,6 +37,10 @@ export class Combat {
         }
     }
     
+    /**
+     * Método start
+     * @returns Cadena de texto indicando quien ha ganado el combate
+     */
     start(): string {
         while(this.fighter1.getHP() > 0 && this.fighter2.getHP() > 0)
             this.move();
