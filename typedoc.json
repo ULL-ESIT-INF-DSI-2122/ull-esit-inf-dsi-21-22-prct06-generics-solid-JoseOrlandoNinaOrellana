@@ -1,6 +1,19 @@
 {
     "entryPoints": [
-        "src/modificacion.ts"
+        "src/modificacion.ts",
+        "src/ejercicio-1/Combat.ts",
+        "src/ejercicio-1/DragonBallFighter.ts",
+        "src/ejercicio-1/Fighter.ts",
+        "src/ejercicio-1/InazumaElevenFighter.ts",
+        "src/ejercicio-1/PokemonFighter.ts",
+        "src/ejercicio-2/BasicStreamableCollection.ts",
+        "src/ejercicio-2/BasicStreamableDocumentaryCollection.ts",
+        "src/ejercicio-2/BasicStreamableMoviesCollection.ts",
+        "src/ejercicio-2/BasicStreamableSeriesCollection.ts",
+        "src/ejercicio-2/FilterStreamable.ts",
+        "src/ejercicio-2/InfoStreamable.ts",
+        "src/ejercicio-2/SortStreamable.ts",
+        "src/ejercicio-3/Cipher.ts"
     ],
     "out": "./docs"
 }
