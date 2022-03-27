@@ -1,10 +1,11 @@
-import {BasicStreamableCollection} from "./BasicStreamableCollection"
+import { BasicStreamableCollection } from "./BasicStreamableCollection"
 
 export type Serie = {
     name: string,
-    year: Date,
+    year: number,
     director: string,
-    ageRestricted: number,
+    genre: string,
+    rating: number,
     seasons: number,
     actors: string[],
 }
@@ -14,15 +15,27 @@ export class BasicStreamableSeriesCollection extends BasicStreamableCollection<S
         super(collection);
     }
 
-    filterByAge(year: Date): Serie[] {
+    filterByActor(actor: string): Serie[] {
         return this.collection.filter(function (element: Serie) {
-             return element.year === year;
+            return element.actors.indexOf(actor) > -1;
         });
     }
 
-    filterByName(name: string): Serie[] {
+    filterByNumberOfSeasons(seasons: number): Serie[] {
         return this.collection.filter(function (element: Serie) {
-             return element.name === name;
+            return element.seasons >= seasons;
         });
+    }
+
+    generalInfo(name: string): string {
+        let info: string = "";
+        let serie: Serie = this.filterByName(name);
+
+        info += "Name: " + serie.name + "\n";
+        info += "Genre: " + serie.genre + "\n";
+        info += "Rating: " + serie.rating + "\n";
+        info += "Seasons: " + serie.seasons + "\n";
+
+        return info;
     }
 }
