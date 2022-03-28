@@ -13,7 +13,8 @@
         "src/ejercicio-2/FilterStreamable.ts",
         "src/ejercicio-2/InfoStreamable.ts",
         "src/ejercicio-2/SortStreamable.ts",
-        "src/ejercicio-3/Cipher.ts"
+        "src/ejercicio-3/Cipher.ts",
+        "src/ModiP7/modi.ts"
     ],
     "out": "./docs"
 }
